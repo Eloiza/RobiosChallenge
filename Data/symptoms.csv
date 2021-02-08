@@ -1,0 +1,8 @@
+name,default,level,question
+temperatura,35,10,"Qual sua temperatura?"
+dor_corpo,0,5,"Você sente dores no corpo fora do normal?"
+cansaco,0,5,"Você sente cansaço fora do normal?"
+dor_cabeca,0,7,"Você sente dor de cabeça?"
+olfato,0,10,"Perda do olfato recente?" 
+paladar,0,10,"Perda do olfato recente?" 
+diarreia,0,4,"Tem tido diarreia recentemente?"
