@@ -1,4 +1,6 @@
 import pandas as pd
+from numpy import sum
+
 
 def main():
 	#Dado alguns sintomas qual a probabilidade da pessoa estar com covid?
@@ -31,7 +33,12 @@ def main():
 			i = i
 
 
+	total_score = sum(answers)
+	if(total_score > len(keys)/2):
+		print("Chances altas de ter covid X.X")
 
+	else:
+		print("Chances baixas de ter covid :)")
 
 
 if __name__ == '__main__':
