@@ -12,6 +12,18 @@ def main():
 		5: 'Você teve diarreia?',
 	}
 
+	probabilities = {
+		"cough": 85.2,
+		"fever": 79.6,
+		"dyspnoea": 76.6,
+		"respiratory_discomfort ": 63.0,
+		"sore_troat ": 24.0,
+		"diarrhoea ": 12.5,
+		"vomiting ": 06.0
+		"inter_travel" : 34.4
+		"positiv_contact": 61.1
+	}
+
 	answers = []
 	keys = list(questions.keys())
 	i = 0 
