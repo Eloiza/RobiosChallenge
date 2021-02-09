@@ -35,8 +35,6 @@ def answer_standardize(a):
 
 def main():
 	df = pd.read_csv("Data/symptoms.csv")
-	print(df["question"])
-
 	questions = df["question"].to_list()
 
 	answers = []
