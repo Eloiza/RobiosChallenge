@@ -1,5 +1,13 @@
 import pandas as pd
 import numpy as np 
+import paho.mqtt.client as mqtt
+
+def publish_result(broker_adress, topic, result):
+	client = mqtt.Client()	
+	client.connect(broker_adress)
+	client.publish(topic, result)
+	client.disconnect()
+
 
 def risk_analyser(answers, probabilities):
 	risk_sum = 0
@@ -51,16 +59,20 @@ def main():
 
 	#check what final message will be delivered	
 	if(risk < 0):
+		risk = 'high'
 		print("Chances altas de ter covid. Volte para casa e busque atendimento médico")
 
 	elif(risk > 0):
+		risk = 'medium'
 		print("Você possui alguns dos sintomas menos comuns da Covid-19.\nTalvez seja a hora de buscar atendimento médico.\nVocê poderá utilizar os serviços deste estabelecimento se seguir corretamente os protocolos de segurança:\n-Lavar Mãos\n-Usar Máscara")
 	
 	else:
+		risk = 'low'
 		print("Seja Bem-Vindo ao estabelecimento. Durante sua estadia use máscara e lembre-se de lavar as mãos com alcool em gel")
 
 
-	#send a message with the decision
+	#send a message with the result
+	publish_result(broker_adress="localhost", topic= "dw/demo", result=risk)
 
 if __name__ == '__main__':
 	main()
