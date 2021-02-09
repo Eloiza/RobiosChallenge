@@ -8,5 +8,9 @@ My approach to this code was to make a Naive Bayes based algorithm to compute th
 - Teich VD, Klajner S, Almeida FAS, Dantas ACB, Laselva CR, Torritesi MG, Canero TR, et al. Epidemiologic and clinical features of patients with COVID-19 in Brazil. einstein (São Paulo). 2020;18:eAO6022. https://doi.org/10.31744/einstein_journal/2020AO6022
 
 ## Dependencies
+paho-mqtt 
+```
+pip install pago-mqtt
+```
 
 ## Running the code
