@@ -33,7 +33,7 @@ def main():
 
 		if(a == "sim" or a == "s" or a == "1"):
 			answers.append(1)
-			i+=1
+			i+= 1
 
 		elif(a == "não" or a == "nao" or a == "n" or a == "0"):
 			answers.append(0)
@@ -50,6 +50,8 @@ def main():
 
 	else:
 		print("Chances baixas de ter covid :)")
+
+
 
 
 if __name__ == '__main__':
