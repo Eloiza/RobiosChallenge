@@ -29,9 +29,9 @@ def main():
 
 	probabilities = df["probability"].to_list()
 	risk_sum = 0
-	for answer, probability in np.zip(answers, probabilities):
+	for answer, probability in zip(answers, probabilities):
+
 		if(probability > 0.5 and answer == 1):
-			print("Chances altas de ter covid. Volte para casa e busque atendimento médico")
 			risk_sum = -1	#high risk client
 			break
 
@@ -42,6 +42,13 @@ def main():
 	if(risk_sum > len(questions)/2):
 		risk_sum = -1	#high riks client
 
+	#check what final message will be delivered	
+	if(risk_sum < 0):
+		print("Chances altas de ter covid. Volte para casa e busque atendimento médico")
+	elif(risk_sum > 0):
+		print("Você possui alguns dos sintomas menos comuns da Covid-19.\nTalvez seja a hora de buscar atendimento médico.\nVocê poderá utilizar os serviços deste estabelecimento se seguir corretamente os protocolos de segurança:\n-Lavar Mãos\n-Usar Máscara")
+	else:
+		print("Seja Bem-Vindo ao estabelecimento. Durante sua estadia use máscara e lembre-se de lavar as mãos com alcool em gel")
 
 if __name__ == '__main__':
 	main()
