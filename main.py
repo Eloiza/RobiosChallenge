@@ -1,57 +1,46 @@
 import pandas as pd
-from numpy import sum
+import numpy as np 
 
 
 def main():
-	questions = {
-		1: 'Você está com febre?',
-		2: 'Você tem tido tosse seca?',
-		3: 'Você notou a perda do paladar ou olfato nos últimos dias?',
-		4: 'Você teve falta de ar?',
-		5: 'Você teve diarreia?',
-	}
 
-	probabilities = {
-		"cough": 85.2,
-		"fever": 79.6,
-		"dyspnoea": 76.6,
-		"respiratory_discomfort ": 63.0,
-		"sore_troat ": 24.0,
-		"diarrhoea ": 12.5,
-		"vomiting ": 06.0,
-		"inter_travel" : 34.4,
-		"positiv_contact": 61.1,
-	}
+	df = pd.read_csv("Data/symptoms.csv")
+	print(df["question"])
+
+	questions = df["question"].to_list()
 
 	answers = []
-	keys = list(questions.keys())
-	i = 0 
-	while(i < len(keys)):
-		print(questions[keys[i]])
-			
+	i = 0
+	while (i < len(questions)):
+		print(str(i +1) + '. '+ questions[i])
 		a = input().lower()
 
 		if(a == "sim" or a == "s" or a == "1"):
 			answers.append(1)
-			i+= 1
-
+			i += 1
+			
 		elif(a == "não" or a == "nao" or a == "n" or a == "0"):
 			answers.append(0)
-			i+= 1
+			i += 1
 
 		else:
 			print("\nResposta Inválida\nResponda novamente\n")
-			i = i
+				
 
+	probabilities = df["probability"].to_list()
+	risk_sum = 0
+	for answer, probability in np.zip(answers, probabilities):
+		if(probability > 0.5 and answer == 1):
+			print("Chances altas de ter covid. Volte para casa e busque atendimento médico")
+			risk_sum = -1	#high risk client
+			break
 
-	total_score = sum(answers)
-	if(total_score > len(keys)/2):
-		print("Chances altas de ter covid X.X")
+		elif(probability < 0.5 and answer == 1):
+			risk_sum += 1 	#medium risk client
 
-	else:
-		print("Chances baixas de ter covid :)")
-
-
+	#case risk sum of not common symptoms are greater than the half ammount of symptoms 
+	if(risk_sum > len(questions)/2):
+		risk_sum = -1	#high riks client
 
 
 if __name__ == '__main__':

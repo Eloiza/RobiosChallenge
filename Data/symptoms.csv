@@ -1,8 +1,8 @@
-name,default,level,question
-temperatura,35,10,"Qual sua temperatura?"
-dor_corpo,0,5,"Você sente dores no corpo fora do normal?"
-cansaco,0,5,"Você sente cansaço fora do normal?"
-dor_cabeca,0,7,"Você sente dor de cabeça?"
-olfato,0,10,"Perda do olfato recente?" 
-paladar,0,10,"Perda do olfato recente?" 
-diarreia,0,4,"Tem tido diarreia recentemente?"
+symptom_name,probability,question
+tosse,0.85,Você tem tido tosse seca recentemente?
+febre,0.79,Você teve febre acima de 38C nos últimos dias?
+falta_ar,0.76,Você tem tido falta de ar?
+desconforto,0.63,Você sente desconforto ao respirar?
+contato,0.61,Teve contato com alguém infectado?
+dor_garganta,0.24,Você sente dor de garganta?
+viagem,0.34,Você viajou recentemente?
