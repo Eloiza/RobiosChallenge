@@ -9,7 +9,7 @@ def publish_result(broker_adress, topic, result):
 	client.disconnect()
 
 
-def risk_analyser(answers, probabilities):
+def risk_analyzer(answers, probabilities):
 	risk_sum = 0
 	for answer, probability in zip(answers, probabilities):
 
@@ -53,7 +53,7 @@ def main():
 				
 
 	probabilities = df["probability"].to_list()
-	risk = risk_analyser(answers, probabilities)
+	risk = risk_analyzer(answers, probabilities)
 
 	#check what final message will be delivered	
 	if(risk < 0):
