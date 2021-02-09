@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np 
 import paho.mqtt.client as mqtt
 
 def publish_result(broker_adress, topic, result):
@@ -68,9 +67,8 @@ def main():
 		risk = 'low'
 		print("Seja Bem-Vindo ao estabelecimento. Durante sua estadia use máscara e lembre-se de lavar as mãos com alcool em gel")
 
-
 	#send a message with the result
-	publish_result(broker_adress="localhost", topic= "dw/demo", result=risk)
+	publish_result(broker_adress="localhost", topic= "dw/demo", result=result)
 
 if __name__ == '__main__':
 	main()
