@@ -3,7 +3,6 @@ from numpy import sum
 
 
 def main():
-	#Dado alguns sintomas qual a probabilidade da pessoa estar com covid?
 	questions = {
 		1: 'Você está com febre?',
 		2: 'Você tem tido tosse seca?',
@@ -19,9 +18,9 @@ def main():
 		"respiratory_discomfort ": 63.0,
 		"sore_troat ": 24.0,
 		"diarrhoea ": 12.5,
-		"vomiting ": 06.0
-		"inter_travel" : 34.4
-		"positiv_contact": 61.1
+		"vomiting ": 06.0,
+		"inter_travel" : 34.4,
+		"positiv_contact": 61.1,
 	}
 
 	answers = []
@@ -36,7 +35,7 @@ def main():
 			answers.append(1)
 			i+=1
 
-		elif(a == "não" or a == "nao" or a == "0"):
+		elif(a == "não" or a == "nao" or a == "n" or a == "0"):
 			answers.append(0)
 			i+= 1
 
