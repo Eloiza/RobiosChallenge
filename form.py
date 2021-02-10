@@ -5,7 +5,8 @@ import form_lib
 import json
 
 def main():
-	print("Olá, eu sou o Robios e vou te fazer algumas perguntas B)\nEssas perguntas são importantes para a segurança de todos\nVamos lá!")
+	print("Olá, eu sou o Robios e vou te fazer algumas perguntas B)\nEssas perguntas são importantes para a segurança de todos")
+	print("Lembre-se de responder com sim/não ou s/n ou 1/0\nPronto(a)?Vamos lá!")
 
 	df = pd.read_csv("Data/symptoms.csv")
 	questions = df["question"].to_list()
@@ -41,13 +42,14 @@ def main():
 		risk = 'low'
 		print("Seja Bem-Vindo ao estabelecimento.\nDurante sua visita use máscara e lembre-se de lavar as mãos com alcool em gel")
 
+	#pack it up in a dictionary 
 	result = {
 		"risk": risk,
 		"questions":questions,
 		"answers": answers
 	}
 
-	#convert to a json string file
+	#convert the result to a json string file
 	result = json.dumps(result, ensure_ascii=False)
 
 	#send a message with the result
