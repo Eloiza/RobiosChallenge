@@ -3,6 +3,8 @@ from mqtt_protocol import Publisher
 import form_lib
 
 def main():
+	print("Olá, eu sou o Robios e vou te fazer algumas perguntas B)\nEssas perguntas são importantes para a segurança de todos\nVamos lá!")
+
 	df = pd.read_csv("Data/symptoms.csv")
 	questions = df["question"].to_list()
 
@@ -18,7 +20,7 @@ def main():
 			i += 1
 	
 		else:
-			print("\nResposta Inválida\nResponda novamente\n")
+			print("\nResposta Inválida\nResponda novamente usando sim/não ou s/n ou 1/0\n")
 				
 
 	probabilities = df["probability"].to_list()
@@ -27,7 +29,7 @@ def main():
 	#check what final message will be delivered	
 	if(risk < 0):
 		risk = 'high'
-		print("Chances altas de ter covid. Volte para casa e busque atendimento médico")
+		print("Você tem chances altas de ter covid. É melhor ficar em casa e buscar atendimento médico")
 
 	elif(risk > 0):
 		risk = 'medium'
@@ -35,11 +37,13 @@ def main():
 	
 	else:
 		risk = 'low'
-		print("Seja Bem-Vindo ao estabelecimento. Durante sua estadia use máscara e lembre-se de lavar as mãos com alcool em gel")
+		print("Seja Bem-Vindo ao estabelecimento.\nDurante sua visita use máscara e lembre-se de lavar as mãos com alcool em gel")
 
+	result = "Risco: " + risk + '; Respostas: ' + str(answers)
+	
 	#send a message with the result
 	publisher = Publisher()
-	publisher.publish(broker_adress="localhost", topic="dw/demo", message=risk)
+	publisher.publish(broker_adress="localhost", topic="dw/demo", message=result)
 
 if __name__ == '__main__':
 	main()
