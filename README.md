@@ -1,17 +1,17 @@
 # RobiosChallenge :robot:
 
 ## Descrição
-Este é um desafio proposto pela Human Robotics para implementar um programa para a triagem de Covid-19 na entrada de um estabelecimento. Ao final da triagem o resultado deve ser enviado por meio do protocolo `mqtt`.
+Este é um desafio proposto pela Human Robotics para implementar um programa para a triagem de Covid-19 na entrada de um estabelecimento. Ao final da triagem o resultado deve ser enviado por meio do protocolo `MQTT`.
 
-Esta solução foi implementada inteiramente em Python. O arquivo `main.py` implementa funções para interagir com os clientes, processar a resposta obtida e envia-la através do protocolo `mqtt`. Para realizar a triagem, o programa utiliza como base os dados do arquivo `Data/sympstoms.csv`. Nele há três campos: 
+Esta solução foi implementada inteiramente em Python. O arquivo `form.py` implementa funções para interagir com os clientes, processar a resposta obtida e envia-la através do protocolo `MQTT`. Para realizar a triagem, o programa utiliza como base os dados do arquivo `Data/sympstoms.csv`. Nele há três campos: 
 
--`symptom_name`: nome do sintoma; 
--`proability`: probabilidade de ocorrer em infectados com Covid-19 no Brasil;
--`question`: pergunta atrelada ao sintoma. 
+- `symptom_name`: nome do sintoma; 
+- `probability`: probabilidade de ocorrer em infectados com Covid-19 no Brasil;
+- `question`: pergunta atrelada ao sintoma. 
 
 O campo probabilidade foi baseado nos dados encontrados em dois artigos cientificos que relatam a situação da Covid-19 no Brasil. Esses artigos estão referenciados no final deste arquivo README.md.
 
-O arquivo `subscriber.py` implementa um inscrito que irá receber a mensagem enviada pelo `main.py`. Este foi implementado para fim de teste do protocolo `mqtt` e utiliza o `localhost` como broker.
+O arquivo `subscriber.py` implementa um inscrito que irá receber a mensagem enviada pelo `form.py`. Este foi implementado para fim de teste do protocolo `MQTT` e utiliza o `localhost` como broker.
 
 ## Dependências
 Para executar o código deste repositório é necessário ter instalado as bibliotecas `pandas` e `paho-mqtt`. A `pandas` é responsável pela manipulação do arquivo `.csv` e a biblioteca `paho-mqtt` é responsável por lidar com o procolo `mqtt`. Ambas podem ser instaladas usando os comandos abaixo.
@@ -36,9 +36,9 @@ Para executar o código deste repositório siga os passos:
 ```
 python3 subscriber.py
 ```
-2. Em outro terminal inicie o `main.py` para executar o código responsável por gerar o questionário da triagem.
+2. Em outro terminal inicie o `form.py` para executar o código responsável por gerar o questionário da triagem.
 ```
-python3 main.py
+python3 form.py
 ```
 E está tudo pronto :smile:!
 
