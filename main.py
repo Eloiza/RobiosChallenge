@@ -1,6 +1,8 @@
+# -*- coding: utf-8 -*-
 import pandas as pd
 from mqtt_protocol import Publisher
 import form_lib
+import json
 
 def main():
 	print("Olá, eu sou o Robios e vou te fazer algumas perguntas B)\nEssas perguntas são importantes para a segurança de todos\nVamos lá!")
@@ -39,8 +41,15 @@ def main():
 		risk = 'low'
 		print("Seja Bem-Vindo ao estabelecimento.\nDurante sua visita use máscara e lembre-se de lavar as mãos com alcool em gel")
 
-	result = "Risco: " + risk + '; Respostas: ' + str(answers)
-	
+	result = {
+		"risk": risk,
+		"questions":questions,
+		"answers": answers
+	}
+
+	#convert to a json string file
+	result = json.dumps(result, ensure_ascii=False)
+
 	#send a message with the result
 	publisher = Publisher()
 	publisher.publish(broker_adress="localhost", topic="dw/demo", message=result)

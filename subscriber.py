@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from mqtt_protocol import Subscriber
 
 def main():	

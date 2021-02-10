@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def form_analyzer(answers, probabilities):
 	risk_sum = 0
 	for answer, probability in zip(answers, probabilities):
