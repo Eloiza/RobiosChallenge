@@ -1,5 +1,4 @@
 symptom_name,probability,question
-azul, 0.90,Você está azul agora?
 tosse,0.85,Você tem tido tosse seca recentemente?
 febre,0.79,Você teve febre acima de 38C nos últimos dias?
 falta_ar,0.76,Você tem tido falta de ar?
